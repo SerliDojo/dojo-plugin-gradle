@@ -45,3 +45,7 @@ tasks.register("say-hello", Greeting) {
 	greeting = "Bonsoir"
 	recipient = "Serli Dojo"
 }
+
+tasks.named("pre-commit").configure {
+	it.dependsOn tasks.named("build")
+}
