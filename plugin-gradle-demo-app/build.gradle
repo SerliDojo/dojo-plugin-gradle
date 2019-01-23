@@ -1,5 +1,3 @@
-import com.serli.dojo.hello.Greeting
-
 buildscript {
 	ext {
 		springBootVersion = '2.1.2.RELEASE'
@@ -32,16 +30,4 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-greeting {
-	message = "Hi, Serli Dojo"
-}
-
-tasks.register("say-hello", Greeting) {
-	group = "Dojo"
-	description = "Produces a greeting with recipient and message"
-
-	greeting = "Bonsoir"
-	recipient = "Serli Dojo"
 }
