@@ -1,0 +1,34 @@
+plugins {
+	id "java-gradle-plugin"
+	id "groovy"
+	id "maven-publish"
+}
+
+group = 'com.serli.dojo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+gradlePlugin {
+	plugins {
+		register("serliDojoHello") {
+			id = "com.serli.dojo.hello"
+			implementationClass = "com.serli.dojo.hello.HelloPlugin"
+		}
+
+		register("serliDojoHooks") {
+			id = "com.serli.dojo.hooks"
+			implementationClass = "com.serli.dojo.hello.GitHookPlugin"
+		}
+	}
+}
+
+repositories {
+	jcenter()
+	gradlePluginPortal()
+}
+
+dependencies {
+	compile localGroovy()
+
+	compile 'com.github.lalyos:jfiglet:0.0.8'
+}

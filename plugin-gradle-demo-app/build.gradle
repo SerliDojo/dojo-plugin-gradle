@@ -1,0 +1,47 @@
+import com.serli.dojo.hello.Greeting
+
+buildscript {
+	ext {
+		springBootVersion = '2.1.2.RELEASE'
+	}
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("com.serli.dojo:plugin-gradle:0.0.1-SNAPSHOT")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+apply plugin: 'com.serli.dojo.hello'
+apply plugin: 'com.serli.dojo.hooks'
+
+group = 'com.serli.dojo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+greeting {
+	message = "Hi, Serli Dojo"
+}
+
+tasks.register("say-hello", Greeting) {
+	group = "Dojo"
+	description = "Produces a greeting with recipient and message"
+
+	greeting = "Bonsoir"
+	recipient = "Serli Dojo"
+}
