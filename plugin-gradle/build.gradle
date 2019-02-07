@@ -14,6 +14,11 @@ gradlePlugin {
 			id = "com.serli.dojo.hello"
 			implementationClass = "com.serli.dojo.hello.HelloPlugin"
 		}
+
+		register("serliDojoHook") {
+			id = "com.serli.dojo.hook"
+			implementationClass = "com.serli.dojo.hook.GitHookPlugin"
+		}
 	}
 }
 
