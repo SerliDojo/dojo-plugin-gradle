@@ -54,7 +54,7 @@ class InstallGitHooks extends DefaultTask {
 hookName=`basename "\$0"`
 gitParams="\$*"
 
-./gradlew $hookName -Pparams="$gitParams"
+./gradlew $hookName -Pparams="$gitParams" --quiet --console=plain
     '''
         }
 
